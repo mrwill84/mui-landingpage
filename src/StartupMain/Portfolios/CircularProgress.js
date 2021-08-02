@@ -16,7 +16,7 @@ export default function CircularProgressIcon({num}) {
       alignItems="center"
       justifyContent="center"
     >
-      <Typography variant="h6" color="Secondary">{`${num}%`}</Typography>
+      <Typography variant="h6" color="secondary">{`${num}%`}</Typography>
     </Box>
   </Box>
 

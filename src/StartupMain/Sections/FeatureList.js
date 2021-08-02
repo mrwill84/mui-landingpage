@@ -40,10 +40,10 @@ function FeatureList({feature}) {
                 <Typography variant="body2" style={{ color:"#6c757d"}}>With unlimited features that we offer, we promise it's possible to make everything that was impossible for you !</Typography>
             </Grid>
 
-            <Grid container className={classes.feature} sm={6}>
+            <Grid item className={classes.feature} sm={6}>
             {feature.map(item =>
-            <Grid item  >
-               <FeatureItem key={item.title} title={item.title} img={item.image} descript={item.description}/>
+            <Grid item key={item.title}>
+               <FeatureItem  title={item.title} img={item.image} descript={item.description}/>
             </Grid>
             )}
             </Grid>

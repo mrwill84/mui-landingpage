@@ -1,16 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import {Grid} from '@material-ui/core';
-import Header from './Header';
-import Navbar from './Navbar';
-import Offer from './Offer';
+import Header from './Header/Header';
+import Navbar from './Header/Navbar';
+import Offer from './Sections/Offer';
+import FeatureList from './Sections/FeatureList';
+import ProductPage from './Portfolios/ProductPage';
+import SkillsPage from './Portfolios/SkillsPage';
+import SampleProject from './Portfolios/SampleProject';
+import TeamMembers from './Members/TeamMembers';
+import Pricings from './Pricings/Pricings';
+import Contacts from './Members/Contacts';
 import {offerings,sampleWorks,teammates} from '../data';
-import FeatureList from './FeatureList';
-import ProductPage from './ProductPage';
-import SkillsPage from './SkillsPage';
-import SampleProject from './SampleProject';
-import TeamMembers from './TeamMembers';
-import Pricings from './Pricings';
-import Contacts from './Contacts';
+
 
 function Main() {
     const [product,setProduct] = useState([]);
