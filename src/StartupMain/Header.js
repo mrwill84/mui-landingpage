@@ -3,6 +3,7 @@ import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 import DragHandleIcon from '@material-ui/icons/DragHandle';
+import { headerDescript as header } from '../data';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -49,15 +50,15 @@ function Header() {
         <div className={classes.root}>
             <span className={classes.image} />
             <Grid className={classes.headerTitle}>
-                <Typography variant="subtitle1" style={{ fontWeight: '100' }}>WHAT ARE YOU WAITING FOR?</Typography>
+                <Typography variant="subtitle1" style={{ fontWeight: '100' }}>{header.subtitle}</Typography>
                 
-                <Typography variant="h4" style={{ fontWeight: '700' }}>LET'S BE CREATIVE</Typography>
+                <Typography variant="h4" style={{ fontWeight: '700' }}>{header.title}</Typography>
 
-                <Typography component="div" variant="title" className={classes.headerTitle3} style={{ fontWeight: '300' }}>Startup, NEXT GENERATION & HIGHLY FLEXIBLE WORDPRESS THEME</Typography>
+                <Typography component="div" variant="title" className={classes.headerTitle3} style={{ fontWeight: '300' }}>{header.shortNote}</Typography>
 
                 <Typography component="div" variant="h6"  style={{ color: '#FFEB3B', fontWeight: '500' }}  >
                     <DragHandleIcon style={{ color: '#b2102f' }} />
-                    <DragHandleIcon /> Start Doing That <DragHandleIcon />
+                    <DragHandleIcon /> {header.caption} <DragHandleIcon />
                     {/* <LinearScaleIcon /> Start Doing That <LinearScaleIcon /> */}
                     <DragHandleIcon style={{ color: '#b2102f' }} />
                 </Typography>
