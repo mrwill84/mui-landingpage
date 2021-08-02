@@ -1,3 +1,20 @@
+export const brandName = "Startup"
+export const headerDescript = {
+    subtitle : "WHAT ARE YOU WAITING FOR?",
+    title: "LET'S BE CREATIVE",
+    shortNote:"We build proffesional Web Designs for you cheapest price.",
+    caption: "Start Doing That"
+}
+export const Navlinks = [
+    {links: "Home"},
+    {links: "Services"},
+    {links: "Portfolio"},
+    {links: "Blogs"},
+    {links: "Pages"},
+    {links: "Mega Menu"},
+    {links: "Contacts"},
+]
+
 // 6 items
 export const offerings = [
     {
