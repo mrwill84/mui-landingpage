@@ -47,7 +47,7 @@ const useStyles = makeStyles(()=>({
 function SampleProject({working}) {
     const classes = useStyles();
     return (
-        <Grid container justify="center" alignItems="center" className={classes.root}>
+        <Grid container justify="center" alignItems="center" className={classes.root} id="Portfolio">
              <Grid item style={{ marginBottom:"3rem"}}>
                 <Typography variant="h4">SAMPLE <span className="text-info">WORKS</span></Typography>
                 <Typography variant="body2" style={{color:"#6c757d"}} >Let’s take a look at some of the best of our works here, we love them and hope you too</Typography>

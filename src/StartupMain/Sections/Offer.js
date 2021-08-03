@@ -4,7 +4,7 @@ import OfferItem from './OfferItem';
 
 function Offer({feature}) {
     return (
-        <Grid container justify="center" style={{ marginTop:"5%"}}>
+        <Grid container justify="center" style={{ marginTop:"5%"}} id="Services">
             <Grid item xs={12}>
                 <Typography variant="h4" className="text-center">
                 What We <span className="text-info">Offer</span></Typography>

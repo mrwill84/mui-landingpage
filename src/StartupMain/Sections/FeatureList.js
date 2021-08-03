@@ -33,7 +33,7 @@ function FeatureList({feature}) {
     const classes= useStyles();
     
     return (
-        <Grid container justify="center" className={classes.root}>
+        <Grid container justify="center" className={classes.root} id="Feature">
             <Grid item>
                 <Typography variant="h4" className="text-center">AMAZING <span className="text-info">FEATURES</span></Typography>
 

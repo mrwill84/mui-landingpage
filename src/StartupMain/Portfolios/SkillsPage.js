@@ -21,7 +21,7 @@ const useStyles = makeStyles(()=>({
 function SkillsPage() {
     const classes = useStyles();
     return (
-        <Grid container justify="center" alignItems="center" className={classes.root} >
+        <Grid container justify="center" alignItems="center" className={classes.root} id="skills">
             <Grid item>
                 <Typography variant="h4">OUR POWERFUL <span className="text-info">Skill</span></Typography>
                 <Typography variant="body2" style={{color:"#6c757d"}} >We're good and experienced at different things and areas and we promise about quality of our works</Typography>

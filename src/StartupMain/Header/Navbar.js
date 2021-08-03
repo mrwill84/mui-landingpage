@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -9,6 +9,7 @@ import {
   MenuItem,
   Menu,
   IconButton,
+  Link,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -84,12 +85,25 @@ const useStyles = makeStyles((theme) => ({
     "&:focus": {
       outline: "none",
     },
+    "&:hover": {
+      color: "#333",
+    },
   },
   navlinksMbl: {
     fontFamily: "cursive",
     fontWeight: "600",
+    color: "#333",
     "&:hover": {
       background: "#b6f67c",
+    },
+  },
+  navlinkMbl: {
+    
+    color: "#333",
+    "&:hover": {
+      background: "#b6f67c",
+      color: "#333",
+      textDecoration: 'none',
     },
   },
   moreIcon: {
@@ -116,9 +130,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
-  // const mobileMenuId = React.useRef(null)
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
+  // return once
+  // const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleMobileMenuClose = () => {
@@ -129,25 +146,36 @@ export default function Navbar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorOrigin={{ horizontal: "right", vertical: "top" }}
       anchorEl={mobileMoreAnchorEl}
-      ref={mobileMenuId}
+      id={mobileMenuId}
       keepMounted
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
       transformOrigin={{ horizontal: "right", vertical: "top" }}
-      style={{ marginTop: "60px" }}
+      style={{marginTop: scrollPosition > 460 ?  "0px" : "60px" }}
     >
       {Navlinks.map((linkName) => (
-        <MenuItem
-          key={linkName.links}
-          color="primary"
-          className={classes.navlinksMbl}
-        >
-          {linkName.links}
+        <MenuItem key={linkName.links} className={classes.navlinksMbl}>
+          <Link href={`./#${linkName.links}`} className={classes.navlinkMbl}>
+            {linkName.links}
+          </Link>
         </MenuItem>
       ))}
     </Menu>
@@ -156,8 +184,11 @@ export default function Navbar() {
   return (
     <div className={classes.grow}>
       <AppBar
-        position="static"
-        style={{ background: "#b6f67c", color: "#333" }}
+        position={scrollPosition > 460 ? "fixed" : "sticky"}
+        style={{
+          background: "#b6f67c",
+          color: "#333",
+        }}
       >
         <Toolbar>
           <img className={classes.logo} src="./img/icon.png" alt="text" />
@@ -187,6 +218,7 @@ export default function Navbar() {
                 color="primary"
                 variant="contained"
                 className={classes.navlinks}
+                href={`./#${linkName.links}`}
               >
                 {linkName.links}
               </Button>

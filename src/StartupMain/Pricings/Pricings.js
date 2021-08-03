@@ -26,7 +26,7 @@ const useStyles = makeStyles(()=>({
 function Pricings() {
     const classes = useStyles();
     return (
-        <Grid container justify="center" alignItems="center" className={classes.root}>
+        <Grid container justify="center" alignItems="center" className={classes.root} id="Pricings">
              <Grid item style={{ marginBottom:"3rem"}}>
                 <Typography variant="h4"> REAL CHEAP <span className="text-info">PRICE</span></Typography>
                 <Typography variant="body2" style={{color:"#6c757d"}} >We offer all our services in real low prices in comparison with similar companies</Typography>
