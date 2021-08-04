@@ -69,7 +69,7 @@ function SampleItem({title,img,star}) {
                         <SearchIcon style={{fontSize:"17px"}}/>
                     </div>
                 </Grid>
-                    <Grid xs={12} style={{ marginTop:"35px",fontSize:"10px",}}>
+                    <Grid item xs={12} style={{ marginTop:"35px",fontSize:"10px",}}>
                         <Typography variant="body1" style={{ fontSize:"12px"}}>{title}</Typography>
                         <Typography variant="caption" style={{ fontSize:"10px"}}>Illustration/Print</Typography>
                         <div className={classes.loveIcon}>

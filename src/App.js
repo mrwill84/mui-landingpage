@@ -1,9 +1,12 @@
-import React from 'react';
-import Main from './StartupMain/Main';
-
+import React from "react";
+import Main from "./StartupMain/Main";
+import { ThemeProvider } from "@material-ui/styles";
+import { theme } from "./MuiTheme";
 function App() {
   return (
-     <Main />
+    <ThemeProvider theme={theme}>
+      <Main />
+    </ThemeProvider>
   );
 }
 

@@ -63,7 +63,7 @@ function Contacts() {
                 <h4>UNIQUE! We Do <FavoriteIcon style={{color:"#17a2b8"}}/> It And Hope You Too</h4>
                 <Button variant="contained" style={{background:"#17a2b8",color:"white",padding:"9px"}} >PURCHASE NOW <AddShoppingCartIcon /></Button>
             </Grid>
-            <Grid container className={classes.contact}>
+            <Grid container className={classes.contact} id="Contacts">
                 <Grid container style={{ color:"white",display:"flex",justifyContent:"center"}}>
                     <img src="./img/icon.png" alt="test" width="30px" height="30px" />
                     <p style={{ marginLeft:"9px"}}>Start Up</p>
