@@ -98,12 +98,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navlinkMbl: {
-    
     color: "#333",
     "&:hover": {
       background: "#b6f67c",
       color: "#333",
-      textDecoration: 'none',
+      textDecoration: "none",
     },
   },
   moreIcon: {
@@ -169,7 +168,7 @@ export default function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
       transformOrigin={{ horizontal: "right", vertical: "top" }}
-      style={{marginTop: scrollPosition > 460 ?  "0px" : "60px" }}
+      style={{ marginTop: scrollPosition > 460 ? "0px" : "60px" }}
     >
       {Navlinks.map((linkName) => (
         <MenuItem key={linkName.links} className={classes.navlinksMbl}>
@@ -184,7 +183,8 @@ export default function Navbar() {
   return (
     <div className={classes.grow}>
       <AppBar
-        position={scrollPosition > 460 ? "fixed" : "sticky"}
+        // position={scrollPosition > 460 ? "fixed" : "sticky"}
+        position="sticky"
         style={{
           background: "#b6f67c",
           color: "#333",
