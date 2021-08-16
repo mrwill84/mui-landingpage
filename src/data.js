@@ -226,14 +226,29 @@ export const sampleWorks = [
     img: "./img/7.png",
     love: "123",
     star: "2.7k",
+    type: "Web Application",
+    description:
+      "Sample work powered by wordpress.This is successfully working over production.",
+    url: "https://nahidnstu12.github.io/startup-mui/",
+  },
+  {
+    title: "CMS Site Powered By Wordpress",
+    img: "./img/7.png",
+    love: "123",
+    star: "2.7k",
+    url: "https://food-fork.netlify.app/",
+    type: "Web Application",
     description:
       "Sample work powered by wordpress.This is successfully working over production.",
   },
+
   {
     title: "GMS Site Powered By Wordpress",
     img: "./img/8.png",
     love: "183",
     star: "1.9k",
+    type: "Website",
+    url: "https://nahidnstu12.github.io/youtube-api-clone/",
     description:
       "Sample work powered by wordpress.This is successfully working over production.",
   },
@@ -242,6 +257,8 @@ export const sampleWorks = [
     img: "./img/9.png",
     love: "123",
     star: "2.7k",
+    url: "https://food-fork.netlify.app/",
+    type: "Web Application",
     description:
       "Sample work powered by wordpress.This is successfully working over production.",
   },
@@ -250,6 +267,8 @@ export const sampleWorks = [
     img: "./img/7.png",
     love: "123",
     star: "2.7k",
+    url: "https://food-fork.netlify.app/",
+    type: "Web Application",
     description:
       "Sample work powered by wordpress.This is successfully working over production.",
   },
@@ -258,14 +277,18 @@ export const sampleWorks = [
     img: "./img/10.png",
     love: "123",
     star: "2.7k",
+    type: "Web Application",
     description:
       "Sample work powered by wordpress.This is successfully working over production.",
+    url: "https://nahidnstu12.github.io/startup-mui/",
   },
   {
     title: "Laptop Powered By Wordpress",
     img: "./img/8.png",
     love: "123",
     star: "2.7k",
+    type: "Website",
+    url: "https://nahidnstu12.github.io/youtube-api-clone/",
     description:
       "Sample work powered by wordpress.This is successfully working over production.",
   },
@@ -274,14 +297,18 @@ export const sampleWorks = [
     img: "./img/9.png",
     love: "123",
     star: "5.7k",
+    type: "Web Application",
     description:
       "Sample work powered by wordpress.This is successfully working over production.",
+    url: "https://nahidnstu12.github.io/startup-mui/",
   },
   {
     title: "CSTEAuto Powered By Wordpress",
     img: "./img/10.png",
     love: "123",
     star: "2.7k",
+    type: "Website",
+    url: "https://nahidnstu12.github.io/youtube-api-clone/",
     description:
       "Sample work powered by wordpress.This is successfully working over production.",
   },

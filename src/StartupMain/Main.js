@@ -5,7 +5,7 @@ import Navbar from "./Header/Navbar";
 import Offer from "./Sections/Offer";
 import HeroSection from "./Sections/HeroSection";
 import Servicings from "./Sections/Servicings";
-import SkillsPage from "./Portfolios/SkillsPage";
+// import SkillsPage from "./Portfolios/SkillsPage";
 import SampleProject from "./Portfolios/SampleProject";
 import TeamMembers from "./Members/TeamMembers";
 import Pricings from "./Pricings/Pricings";
@@ -44,7 +44,7 @@ function Main() {
       <Servicings servicings={service} />
       <AcomplishSection sector={acomplishSection} />
       {/* <Dummy /> */}
-      <SkillsPage />
+      {/* <SkillsPage /> */}
       <SampleProject working={sample} />
       <TeamMembers members={members} />
       <Pricings />
