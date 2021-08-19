@@ -3,7 +3,6 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
-  Button,
   Typography,
   InputBase,
   MenuItem,
@@ -175,18 +174,7 @@ export default function Navbar() {
     >
       {navlinks.map((linkName) => (
         <MenuItem key={linkName.label} className={classes.navlinksMbl}>
-          <Link
-            className={classes.navlinkMbl}
-            to={linkName.path}
-            activeClass="active"
-            spy={true}
-            smooth={true}
-            offset={-90}
-            duration={500}
-            delay={300}
-          >
-            {linkName.label}
-          </Link>
+          <RenderNavLinks label={linkName.label} scrollTo={linkName.path} />
         </MenuItem>
       ))}
     </Menu>
@@ -207,37 +195,18 @@ export default function Navbar() {
           <Typography className={classes.title} variant="h6" noWrap>
             {brandName}
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </div>
+
+          <RenderSearch />
 
           <div className={classes.grow} />
 
           <div className={classes.sectionDesktop}>
             {navlinks.map((linkName) => (
-              <Link
+              <RenderNavLinks
+                label={linkName.label}
+                scrollTo={linkName.path}
                 key={linkName.label}
-                className={classes.navlinks}
-                to={linkName.path}
-                activeClass="active"
-                spy={true}
-                smooth={true}
-                offset={-90}
-                duration={500}
-                delay={300}
-              >
-                {linkName.label}
-              </Link>
+              />
             ))}
           </div>
           <div className={classes.sectionMobile}>
@@ -258,3 +227,41 @@ export default function Navbar() {
     </div>
   );
 }
+
+const RenderSearch = () => {
+  const classes = useStyles();
+  return (
+    <div className={classes.search}>
+      <div className={classes.searchIcon}>
+        <SearchIcon />
+      </div>
+      <InputBase
+        placeholder="Search…"
+        classes={{
+          root: classes.inputRoot,
+          input: classes.inputInput,
+        }}
+        inputProps={{ "aria-label": "search" }}
+      />
+    </div>
+  );
+};
+
+const RenderNavLinks = ({ label, scrollTo }) => {
+  const classes = useStyles();
+  return (
+    <Link
+      key={label}
+      className={classes.navlinks}
+      to={scrollTo}
+      activeClass="active"
+      spy={true}
+      smooth={true}
+      offset={-90}
+      duration={500}
+      delay={300}
+    >
+      {label}
+    </Link>
+  );
+};
