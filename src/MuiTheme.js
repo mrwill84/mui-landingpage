@@ -6,7 +6,7 @@ export const theme = createMuiTheme({
       main: "#b6f67c", //litegreen
     },
     secondary: {
-      main: "#11cb5f", //green type
+      main: "#158e2a", //green type
     },
   },
 });

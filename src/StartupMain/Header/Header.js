@@ -48,11 +48,17 @@ const useStyles = makeStyles(() => ({
       transition: "1s ease-in-out",
     },
   },
+  headerTitleImg: {
+    display: "flex",
+    alignItems: "center",
+    flexBasis: "100%",
+    width: "28%",
+  },
   headerTitle4: {
     // color: "#adff2f",
     fontWeight: "300",
     fontSize: "18px",
-    width: "45%",
+    // width: "45%",
     textAlign: "center",
   },
   downIcon: {
@@ -69,9 +75,9 @@ const useStyles = makeStyles(() => ({
 function Header() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="/">
       <span className={classes.image} />
-      <Grid className={classes.headerTitle}>
+      <Grid container className={classes.headerTitle}>
         <Typography variant="subtitle1" className={classes.headerTitle1}>
           {header.subtitle}
         </Typography>
@@ -87,20 +93,21 @@ function Header() {
         >
           {header.shortNote}
         </Typography>
-
-        <Typography
-          component="div"
-          variant="h6"
-          className={classes.headerTitle4}
-          color="primary"
-        >
-          {header.caption}
+        <Grid item className={classes.headerTitleImg}>
+          <Typography
+            component="div"
+            variant="h6"
+            className={classes.headerTitle4}
+            color="primary"
+          >
+            {header.caption}
+          </Typography>
           <img
             src="./img/get-started.png"
             alt="get started"
             className={classes.downIcon}
           />
-        </Typography>
+        </Grid>
       </Grid>
     </div>
   );

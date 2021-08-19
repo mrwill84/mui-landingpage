@@ -1,85 +1,106 @@
-import React from 'react';
-import {Grid,Typography} from '@material-ui/core';
-import {makeStyles} from '@material-ui/core/styles';
-import AttachFileIcon from '@material-ui/icons/AttachFile';
-import SearchIcon from '@material-ui/icons/Search';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-const useStyles = makeStyles(()=>({
-    
-    imgStyle:{
-        objectFit:"contain",
-        height:"100%",
-        borderRadius:".5rem",
-        width:"100%",
-    },
-    workFigure:{
-        position:"relative",
-        textAlign:"center",
-        color:"#fff",
-        overflow:"hidden",
-        cursor:"pointer",
-        margin:"0",
-        '&:hover figcaption':{
-            transform: 'translateY(0%)',
-            visibility:'visible',
-            opacity:1,
-        }
-    },
-    workCaption:{
-        position:"absolute",
-        top:'0',
-        left:'0',
-        transform:'translateY(50%)',
-        width:'100%',
-        height:'100%',
-        background:'#17a2bb',
-        display:"flex",
-        transition:'all .5s',
-        opacity:0,
-        visibility:'hidden',
-       
-    },
+import React from "react";
+import { Grid, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import AttachFileIcon from "@material-ui/icons/AttachFile";
+import SearchIcon from "@material-ui/icons/Search";
 
-    attachClip:{
-        height:'1.8rem',
-        width:'1.8rem',
-        borderRadius:'3px',
-        transform:'rotate(45deg)',
-        color:"#ac89ea",
-        marginLeft:"40%",
-        marginTop:"36px",
-        position:"absolute",
-       
-        },
+const useStyles = makeStyles(() => ({
+  imgStyle: {
+    objectFit: "contain",
+    height: "100%",
+    borderRadius: ".5rem",
+    width: "100%",
+  },
+  workFigure: {
+    position: "relative",
+    textAlign: "center",
+    color: "#fff",
+    overflow: "hidden",
+    cursor: "pointer",
+    margin: "0",
+    "&:hover figcaption": {
+      transform: "translateY(0%)",
+      visibility: "visible",
+      opacity: 1,
+    },
+  },
+  workCaption: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    transform: "translateY(50%)",
+    width: "100%",
+    height: "100%",
+    // background: "#17a2bb",
+    background: "#c0ebf38c",
+    display: "flex",
+    transition: "all .5s",
+    opacity: 0,
+    visibility: "hidden",
+  },
+  attachClipContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
+  attachClip: {
+    height: "2.8rem",
+    width: "2.8rem",
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "#158e2a",
+    // color: "#ac89ea",
+    // position: "absolute",
+  },
+  clipText: {
+    fontWeight: "600",
+  },
 }));
-function SampleItem({title,img,star}) {
-    const classes = useStyles();
-    return (
-        <>
-            <figure className={classes.workFigure}>
-            <img src={img} alt={title} className={classes.imgStyle}/>
-            <figcaption className={classes.workCaption}>
-                <Grid container>
-                <Grid item xs={12}>
-                    <div className={classes.attachClip} style={{ background:"#fff"}}>
-                        <AttachFileIcon style={{fontSize:"17px"}}/>
-                    </div>
-                    <div className={classes.attachClip} style={{ background:"#333",marginLeft:"53%"}}>
-                        <SearchIcon style={{fontSize:"17px"}}/>
-                    </div>
-                </Grid>
-                    <Grid item xs={12} style={{ marginTop:"35px",fontSize:"10px",}}>
-                        <Typography variant="body1" style={{ fontSize:"12px"}}>{title}</Typography>
-                        <Typography variant="caption" style={{ fontSize:"10px"}}>Illustration/Print</Typography>
-                        <div className={classes.loveIcon}>
-                        <FavoriteIcon fontSize="small" style={{fontSize:"17px"}}/>{star}</div>
-                    </Grid>
-                </Grid>
-            </figcaption>
-            </figure>
-        </>
-    )
+function SampleItem({ title, img, description, url, type }) {
+  const classes = useStyles();
+  return (
+    <>
+      <figure className={classes.workFigure}>
+        <img src={img} alt={title} className={classes.imgStyle} />
+        <figcaption className={classes.workCaption}>
+          <Grid container>
+            <Grid item xs={12} className={classes.attachClipContainer}>
+              <div className={classes.attachClip}>
+                <a href={url}>
+                  <AttachFileIcon
+                    style={{ fontSize: "22px" }}
+                    color="primary"
+                  />
+                </a>
+              </div>
+              <div className={classes.attachClip} title={description}>
+                <SearchIcon style={{ fontSize: "22px" }} />
+              </div>
+            </Grid>
+            <Grid item xs={12} style={{ marginTop: "15px" }}>
+              <Typography
+                variant="body1"
+                color="textPrimary"
+                className={classes.clipText}
+              >
+                {title}
+              </Typography>
+              <Typography
+                variant="caption"
+                color="textPrimary"
+                className={classes.clipText}
+              >
+                {type}
+              </Typography>
+            </Grid>
+          </Grid>
+        </figcaption>
+      </figure>
+    </>
+  );
 }
 
-export default SampleItem
+export default SampleItem;
