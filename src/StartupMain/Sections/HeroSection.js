@@ -44,7 +44,7 @@ function HeroSection({ acquantace }) {
   const classes = useStyles();
 
   return (
-    <Grid container justify="center" className={classes.root} id="Feature">
+    <Grid container justify="center" className={classes.root} id="features">
       <Grid item className={classes.acquantace} sm={6}>
         <Typography variant="h4" className={classes.slogan}>
           {acquantace.slogan}

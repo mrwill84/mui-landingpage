@@ -69,7 +69,7 @@ const useStyles = makeStyles(() => ({
 function Header() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="/">
       <span className={classes.image} />
       <Grid className={classes.headerTitle}>
         <Typography variant="subtitle1" className={classes.headerTitle1}>

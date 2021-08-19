@@ -32,6 +32,7 @@ function TeamMembers({ members }) {
       justify="center"
       alignItems="center"
       className={classes.root}
+      id="teams"
     >
       <Grid item style={{ marginBottom: "3rem" }}>
         <SectionHeader

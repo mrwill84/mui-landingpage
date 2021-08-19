@@ -53,7 +53,7 @@ function SampleProject({ working }) {
       justify="center"
       alignItems="center"
       className={classes.root}
-      id="Portfolio"
+      id="portfolios"
     >
       <Grid item style={{ marginBottom: "3rem" }}>
         <SectionHeader

@@ -8,14 +8,14 @@ export const headerDescript = {
     "We build professional Web Designs for you cheapest price. Creating great experience for web and mobile.",
   caption: "Learn more about our approach",
 };
-export const Navlinks = [
-  { links: "Home" },
-  { links: "Services" },
-  { links: "Feature" },
-  { links: "Portfolio" },
-  { links: "Pricings" },
-  // {links: "Mega Menu"},
-  { links: "Contacts" },
+export const navlinks = [
+  { label: "Home", path: "/" },
+  { label: "Services", path: "services" },
+  { label: "Feature", path: "features" },
+  { label: "Portfolio", path: "portfolios" },
+  {label:"Team", path:"teams"},
+  { label: "Pricings", path: "pricings" },
+  { label: "Contacts", path: "contacts" },
 ];
 
 // 6 items //redundant

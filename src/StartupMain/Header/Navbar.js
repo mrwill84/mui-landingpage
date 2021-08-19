@@ -9,11 +9,12 @@ import {
   MenuItem,
   Menu,
   IconButton,
-  Link,
+  // Link,
 } from "@material-ui/core";
+import { Link } from "react-scroll";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import { brandName, Navlinks } from "../../data";
+import { brandName, navlinks } from "../../data";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -78,9 +79,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navlinks: {
-    margin: "0 6px",
+    margin: "0 9px",
     fontFamily: "cursive",
     fontWeight: "600",
+    cursor: "pointer",
 
     "&:focus": {
       outline: "none",
@@ -99,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navlinkMbl: {
     color: "#333",
+    width: "120px",
     "&:hover": {
       background: "#b6f67c",
       color: "#333",
@@ -112,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionDesktop: {
     color: "rgba(0,0,0,.8)",
-    marginRight: "35px",
+    marginRight: "45px",
     display: "none",
     [theme.breakpoints.up("md")]: {
       display: "flex",
@@ -168,12 +171,21 @@ export default function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
       transformOrigin={{ horizontal: "right", vertical: "top" }}
-      style={{ marginTop: scrollPosition > 460 ? "0px" : "60px" }}
+      style={{ marginTop: scrollPosition > 440 ? "0px" : "60px" }}
     >
-      {Navlinks.map((linkName) => (
-        <MenuItem key={linkName.links} className={classes.navlinksMbl}>
-          <Link href={`./#${linkName.links}`} className={classes.navlinkMbl}>
-            {linkName.links}
+      {navlinks.map((linkName) => (
+        <MenuItem key={linkName.label} className={classes.navlinksMbl}>
+          <Link
+            className={classes.navlinkMbl}
+            to={linkName.path}
+            activeClass="active"
+            spy={true}
+            smooth={true}
+            offset={-90}
+            duration={500}
+            delay={300}
+          >
+            {linkName.label}
           </Link>
         </MenuItem>
       ))}
@@ -183,8 +195,8 @@ export default function Navbar() {
   return (
     <div className={classes.grow}>
       <AppBar
-        // position={scrollPosition > 460 ? "fixed" : "sticky"}
-        position="sticky"
+        position={scrollPosition > 440 ? "fixed" : "sticky"}
+        // position="sticky"
         style={{
           background: "#b6f67c",
           color: "#333",
@@ -212,16 +224,20 @@ export default function Navbar() {
           <div className={classes.grow} />
 
           <div className={classes.sectionDesktop}>
-            {Navlinks.map((linkName) => (
-              <Button
-                key={linkName.links}
-                color="primary"
-                variant="contained"
+            {navlinks.map((linkName) => (
+              <Link
+                key={linkName.label}
                 className={classes.navlinks}
-                href={`./#${linkName.links}`}
+                to={linkName.path}
+                activeClass="active"
+                spy={true}
+                smooth={true}
+                offset={-90}
+                duration={500}
+                delay={300}
               >
-                {linkName.links}
-              </Button>
+                {linkName.label}
+              </Link>
             ))}
           </div>
           <div className={classes.sectionMobile}>

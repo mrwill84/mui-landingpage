@@ -32,7 +32,7 @@ function Pricings() {
       justify="center"
       alignItems="center"
       className={classes.root}
-      id="Pricings"
+      id="pricings"
     >
       
       <Grid item style={{ marginBottom: "3rem" }}>

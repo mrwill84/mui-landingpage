@@ -89,7 +89,7 @@ const PurchaseBtn = () => {
 const SocialAddressSection = () => {
   const classes = useStyles();
   return (
-    <Grid container className={classes.contact} id="Contacts">
+    <Grid container className={classes.contact} id="contacts">
       <Grid
         container
         style={{ color: "white", display: "flex", justifyContent: "center" }}

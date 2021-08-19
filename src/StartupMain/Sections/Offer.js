@@ -16,13 +16,15 @@ const useStyles = makeStyles(() => ({
 function Offer({ feature }) {
   const classes = useStyles();
   return (
-    <Grid container justify="center" className={classes.root} id="offer">
+    <Grid container justify="center" className={classes.root} id="services">
+      <Grid item style={{marginTop: "3rem"}}>
       <SectionHeader
         text="What we"
         colorText="Offer"
         isWhite={true}
         description="We offer our customers the best services & solutions, this is our main services list"
       />
+      </Grid>
 
       <Grid container className={classes.offerSection}>
         {feature.map((item) => (
