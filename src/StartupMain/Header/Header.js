@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Hidden, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { headerDescript as header } from "../../data";
 
@@ -85,29 +85,33 @@ function Header() {
         <Typography variant="h4" style={{ fontWeight: "700" }}>
           {header.title}
         </Typography>
-
-        <Typography
-          component="div"
-          variant="subtitle1"
-          className={classes.headerTitle3}
-        >
-          {header.shortNote}
-        </Typography>
-        <Grid item className={classes.headerTitleImg}>
+        <Hidden only="md">
           <Typography
             component="div"
-            variant="h6"
-            className={classes.headerTitle4}
-            color="primary"
+            variant="subtitle1"
+            className={classes.headerTitle3}
           >
-            {header.caption}
+            {header.shortNote}
           </Typography>
-          <img
-            src="./img/get-started.png"
-            alt="get started"
-            className={classes.downIcon}
-          />
-        </Grid>
+        </Hidden>
+        
+        <Hidden smDown>
+          <Grid item className={classes.headerTitleImg}>
+            <Typography
+              component="div"
+              variant="h6"
+              className={classes.headerTitle4}
+              color="primary"
+            >
+              {header.caption}
+            </Typography>
+            <img
+              src="./img/get-started.png"
+              alt="get started"
+              className={classes.downIcon}
+            />
+          </Grid>
+        </Hidden>
       </Grid>
     </div>
   );

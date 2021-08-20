@@ -8,6 +8,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     padding: "25px",
     paddingRight: "12px",
+    minHeight:"5rem",
     // marginLeft: "2rem",
   },
   image: {

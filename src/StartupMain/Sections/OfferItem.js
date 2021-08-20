@@ -9,6 +9,7 @@ const useStyles = makeStyles(() => ({
   card: {
     height: "65vh",
     padding: "15px 20px",
+    minHeight:"25rem",
   },
   image: {
     width: "10rem",

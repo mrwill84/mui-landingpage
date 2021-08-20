@@ -88,6 +88,9 @@ const useStyles = makeStyles((theme) => ({
     },
     "&:hover": {
       color: "#333",
+      // textDecoration:"underline",
+      borderBottom:"2px solid #333",
+      // transition:"ease 1s",
     },
   },
   navlinksMbl: {
@@ -188,6 +191,7 @@ export default function Navbar() {
         style={{
           background: "#b6f67c",
           color: "#333",
+          transition:"ease 1s",
         }}
       >
         <Toolbar>

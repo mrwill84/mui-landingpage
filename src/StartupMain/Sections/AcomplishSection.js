@@ -13,8 +13,9 @@ const useStyles = makeStyles(() => ({
   },
 
   featureItem: {
-    padding: "1rem 2.3rem",
+    // padding: "1rem 2.3rem",
     gap: "2rem",
+    justifyContent:"center",
     paddingLeft: "7rem",
     marginTop: "16px",
     marginBottom: "13px",

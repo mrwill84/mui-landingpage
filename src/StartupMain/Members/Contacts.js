@@ -121,7 +121,7 @@ const FeedbackForm = () => {
   const classes = useStyles();
   return (
     <Grid container className={classes.location}>
-      <Paper style={{ padding: "3rem", width: "25%" }}>
+      <Paper style={{ padding: "3rem", paddingRight: "3.7rem", width: "25%" }}>
         <form>
           <input
             type="text"
