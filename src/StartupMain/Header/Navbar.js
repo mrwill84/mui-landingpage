@@ -16,6 +16,15 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import { brandName, navlinks } from "../../data";
 
 const useStyles = makeStyles((theme) => ({
+  appBar:{
+    background: "#b6f67c",
+    color: "#333",
+    transition:"ease 1s",
+    position: (scrollPosition) =>(scrollPosition > 440 ? "fixed" : "sticky"),
+    [theme.breakpoints.down('sm')]: {
+      position: (scrollPosition) =>(scrollPosition > 295 ? "fixed" : "sticky"),
+    },
+  },
   grow: {
     flexGrow: 1,
   },
@@ -76,6 +85,12 @@ const useStyles = makeStyles((theme) => ({
         width: "23ch",
       },
     },
+    [theme.breakpoints.down("md")]: {
+      width: "16ch",
+      "&:focus": {
+        width: "20ch",
+      },
+    },
   },
   navlinks: {
     margin: "0 9px",
@@ -133,8 +148,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Navbar() {
-  const classes = useStyles();
+ 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const classes = useStyles(scrollPosition);
 
   // return once
   // const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -186,13 +202,8 @@ export default function Navbar() {
   return (
     <div className={classes.grow}>
       <AppBar
-        position={scrollPosition > 440 ? "fixed" : "sticky"}
-        // position="sticky"
-        style={{
-          background: "#b6f67c",
-          color: "#333",
-          transition:"ease 1s",
-        }}
+        // position={scrollPosition > 440 ? "fixed" : "sticky"}
+        className={classes.appBar}
       >
         <Toolbar>
           <img className={classes.logo} src="./img/icon.png" alt="text" />
