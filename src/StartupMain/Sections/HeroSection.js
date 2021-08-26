@@ -4,9 +4,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { heroImage } from "../../data";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: "3rem 2.3rem",
+    [theme.breakpoints.down('sm')]: {
+      padding:"0",
+    },
   },
   featureImage: {
     width: "100%",

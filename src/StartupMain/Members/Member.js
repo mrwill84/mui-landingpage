@@ -4,12 +4,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import PhoneSharpIcon from "@material-ui/icons/PhoneSharp";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   imgStyle: {
-    objectFit: "contain",
-    height: "100%",
+    // objectFit: "contain",
+    height: "250px",
     borderRadius: ".5rem",
-    width: "100%",
+    width: "250px",
+    [theme.breakpoints.down("xs")]: {
+      height: "350px",
+      width:"100%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width:"100%",
+    },
   },
   workFigure: {
     position: "relative",
@@ -61,7 +68,7 @@ const useStyles = makeStyles(() => ({
     transform: "translateY(-50%)",
     zIndex: "100",
     fontSize: "15px",
-    fontFamily:"cursive",
+    fontFamily: "cursive",
   },
   contact: {
     display: "flex",
@@ -76,6 +83,9 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-around",
     alignItems: "center",
     padding: "5px",
+    [theme.breakpoints.down("xs")]: {
+     marginLeft:"15px"
+    },
   },
 }));
 
@@ -86,30 +96,6 @@ function Member({ name, img, position, gmail, phone }) {
     <>
       <figure className={classes.workFigure}>
         <img src={img} alt={name} className={classes.imgStyle} />
-        {/* <figcaption className={classes.workCaption}>
-                <Grid item xs={12} className={classes.teamFig}>
-                    <div className={classes.attachClip} style={{ background:"#fff",marginLeft:"-90px"}}>
-                        <img src="./img/facebook.png" alt="test" className={classes.logoStyle}/>
-                    </div>
-                    <div className={classes.attachClip} style={{ background:"#fff",marginLeft:"-46px"}}>
-                        <img src="./img/twitter.png" alt="test" className={classes.logoStyle}/>
-                    </div>
-                    <div className={classes.attachClip} style={{ background:"#fff",marginLeft:"0px"}}>
-                        <img src="./img/linkedin.png" alt="test" className={classes.logoStyle}/>
-                    </div>
-                    <div className={classes.attachClip} style={{ background:"#fff",marginLeft:"46px"}}>
-                        <img src="./img/google.png" alt="test" className={classes.logoStyle}/>
-                    </div>
-                    <div className={classes.attachClip} style={{ background:"#fff",marginLeft:"90px"}}>
-                        <img src="./img/basketball.png" alt="test" className={classes.logoStyle}/>
-                    </div>
-                    <div className={classes.attachClip} style={{ background:"#fff",marginLeft:"90px"}}>
-                        <img src="./img/vimeo.png" alt="test" className={classes.logoStyle}/>
-                    </div>
-                    
-                </Grid>
-                   
-            </figcaption> */}
       </figure>
 
       <Typography variant="body1" className={classes.memName}>
@@ -117,7 +103,11 @@ function Member({ name, img, position, gmail, phone }) {
       </Typography>
       <Typography
         variant="body1"
-        style={{ fontSize: "14px", marginBottom: "12px",fontFamily:"cursive", }}
+        style={{
+          fontSize: "14px",
+          marginBottom: "12px",
+          fontFamily: "cursive",
+        }}
       >
         {position}
       </Typography>
@@ -138,7 +128,11 @@ function Member({ name, img, position, gmail, phone }) {
       </Grid>
       <Divider />
       <Grid container className={classes.socials}>
-        <RenderSocial imgUrl="./img/facebook.png" url="https://www.facebook.com/asif.mahmud.92317" text="fb" />
+        <RenderSocial
+          imgUrl="./img/facebook.png"
+          url="https://www.facebook.com/asif.mahmud.92317"
+          text="fb"
+        />
         <RenderSocial imgUrl="./img/linkedin.png" url="#" text="linkedin" />
         <RenderSocial imgUrl="./img/twitter.png" url="#" text="goggle" />
       </Grid>

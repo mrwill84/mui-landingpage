@@ -10,17 +10,23 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
   },
   colorText: {
     // color: "rgb(68, 190, 199)",
-    color: props => props.isWhite ? "rgb(68, 190, 199)" : "#158e2a",
-    marginLeft:"8px",
+    color: (props) => (props.isWhite ? "rgb(68, 190, 199)" : "#158e2a"),
+    marginLeft: "8px",
   },
 }));
-export default function SectionHeader({ text, colorText, description, ...props }) {
+export default function SectionHeader({
+  text,
+  colorText,
+  description,
+  ...props
+}) {
   const classes = useStyles(props);
   return (
-    <Grid item xs={12} >
+    <Grid item xs={12}>
       <Typography
         variant="h4"
         className={`${classes.textFont} ${classes.textCenter}`}

@@ -1,9 +1,16 @@
 import React from "react";
-import { Grid, makeStyles, Button, Paper, Typography } from "@material-ui/core";
+import {
+  Grid,
+  makeStyles,
+  Button,
+  Paper,
+  Typography,
+  Hidden,
+} from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { RenderSocial } from "./Member";
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   contact: {
     padding: "3rem",
     background: "#343a40",
@@ -35,6 +42,14 @@ const useStyles = makeStyles(() => ({
     backgroundImage: `url('./img/location.PNG')`,
     padding: "3rem",
   },
+  formContainer: {
+    padding: "3rem",
+    paddingRight: "3.7rem",
+    width: "25%",
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+  },
   formControl: {
     display: "block",
     width: "100%",
@@ -60,7 +75,9 @@ function Contacts() {
   return (
     <Grid container>
       {/* uniq + purchase */}
-      <PurchaseBtn />
+      <Hidden xsDown>
+        <PurchaseBtn />
+      </Hidden>
       <SocialAddressSection />
       <FeedbackForm />
       <Footer />
@@ -72,7 +89,7 @@ const PurchaseBtn = () => {
   return (
     <Grid container className={classes.uniqueStyle}>
       <Typography variant="h4">
-        UNIQUE! We Do {"   "}
+        UNIQUE! We Do
         <FavoriteIcon style={{ color: "#17a2b8", fontSize: "33px" }} /> It And
         Hope You Too
       </Typography>
@@ -121,7 +138,7 @@ const FeedbackForm = () => {
   const classes = useStyles();
   return (
     <Grid container className={classes.location}>
-      <Paper style={{ padding: "3rem", width: "25%" }}>
+      <Paper className={classes.formContainer} style={{}}>
         <form>
           <input
             type="text"

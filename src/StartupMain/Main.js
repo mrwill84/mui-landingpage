@@ -10,6 +10,7 @@ import SampleProject from "./Portfolios/SampleProject";
 import TeamMembers from "./Members/TeamMembers";
 import Pricings from "./Pricings/Pricings";
 import Contacts from "./Members/Contacts";
+// import Test from "./Common/Test2"
 import {
   offerings,
   sampleWorks,
@@ -40,6 +41,7 @@ function Main() {
       <Header />
       <Navbar />
       <Offer feature={offer} />
+      {/* <Test /> */}
       <HeroSection acquantace={acquantace} />
       <Servicings servicings={service} />
       <AcomplishSection sector={acomplishSection} />

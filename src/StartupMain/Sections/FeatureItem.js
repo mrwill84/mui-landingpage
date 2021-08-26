@@ -2,13 +2,21 @@ import React, { forwardRef } from "react";
 import { Grid, Typography, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
     padding: "25px",
     paddingRight: "12px",
+    minHeight:"5rem",
+    minWidth:"15rem",
     // marginLeft: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      marginRight: "1rem",
+      minWidth:"8rem",
+      marginTop:"1rem",
+      padding:"10px",
+    },
   },
   image: {
     height: "2.5rem",

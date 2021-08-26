@@ -1,12 +1,15 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Hidden, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { headerDescript as header } from "../../data";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "450px",
     fontFamily: `'Raleway', sans-serif`,
+    [theme.breakpoints.down('sm')]: {
+      minHeight: "300px",
+    },
   },
   image: {
     backgroundImage: `linear-gradient(rgba(138,138,138,.6),rgba(138,138,138,.9)),url("./img/header-bg.jpg")`,
@@ -15,6 +18,9 @@ const useStyles = makeStyles(() => ({
     width: "100%",
     height: "450px",
     position: "absolute",
+    [theme.breakpoints.down('sm')]: {
+      height: "300px",
+    },
   },
   headerTitle: {
     position: "relative",
@@ -71,6 +77,10 @@ const useStyles = makeStyles(() => ({
       transition: "1ms ease-in-out",
     },
   },
+  mblBtn:{
+    marginTop:"3rem",
+    fontWeight:"600",
+  }
 }));
 function Header() {
   const classes = useStyles();
@@ -85,29 +95,36 @@ function Header() {
         <Typography variant="h4" style={{ fontWeight: "700" }}>
           {header.title}
         </Typography>
-
-        <Typography
-          component="div"
-          variant="subtitle1"
-          className={classes.headerTitle3}
-        >
-          {header.shortNote}
-        </Typography>
-        <Grid item className={classes.headerTitleImg}>
+        <Hidden smDown>
           <Typography
             component="div"
-            variant="h6"
-            className={classes.headerTitle4}
-            color="primary"
+            variant="subtitle1"
+            className={classes.headerTitle3}
           >
-            {header.caption}
+            {header.shortNote}
           </Typography>
-          <img
-            src="./img/get-started.png"
-            alt="get started"
-            className={classes.downIcon}
-          />
-        </Grid>
+        </Hidden>
+        
+        <Hidden smDown>
+          <Grid item className={classes.headerTitleImg}>
+            <Typography
+              component="div"
+              variant="h6"
+              className={classes.headerTitle4}
+              color="primary"
+            >
+              {header.caption}
+            </Typography>
+            <img
+              src="./img/get-started.png"
+              alt="get started"
+              className={classes.downIcon}
+            />
+          </Grid>
+        </Hidden>
+      <Hidden mdUp>
+      <Button variant="outlined" color="primary" className={classes.mblBtn}>Get Started</Button>
+      </Hidden>
       </Grid>
     </div>
   );
