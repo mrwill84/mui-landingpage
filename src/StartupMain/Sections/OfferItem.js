@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
     padding: "35px 10px 25px 15px",
   },
   card: {
-    height: "65vh",
+    // height: "65vh",
     padding: "15px 20px",
     minHeight:"25rem",
   },

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#b6f67c",
     color: "#333",
     transition:"ease 1s",
-    position: (scrollPosition) =>(scrollPosition > 440 ? "fixed" : "sticky"),
+    position: (scrollPosition) =>(scrollPosition > 450 ? "fixed" : "sticky"),
     [theme.breakpoints.down('sm')]: {
       position: (scrollPosition) =>(scrollPosition > 295 ? "fixed" : "sticky"),
     },
@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 16px",
     marginLeft: theme.spacing(8),
     cursor: "pointer",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft:"30px",
+    },
   },
   title: {
     fontFamily: "cursive",

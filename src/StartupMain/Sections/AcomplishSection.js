@@ -4,7 +4,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import FeatureItem from "./FeatureItem";
 import CountUp from "react-countup";
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     background: "#b6f67c8c",
     padding: "20px",
@@ -13,12 +13,22 @@ const useStyles = makeStyles(() => ({
   },
 
   featureItem: {
-    // padding: "1rem 2.3rem",
     gap: "2rem",
-    justifyContent:"center",
-    paddingLeft: "7rem",
+    justifyContent: "center",
+    // paddingLeft: "7rem",
     marginTop: "16px",
     marginBottom: "13px",
+    //
+    [theme.breakpoints.down("xs")]: {
+      paddingLeft: "1rem",
+      gap: "0",
+    },
+  },
+  container: {
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "20%",
+      flexBasis: "100%",
+    },
   },
 }));
 
@@ -32,9 +42,10 @@ export default function AcomplishSection({ sector }) {
         {sector.map((item) => (
           <Grid
             item
-            sm={2}
-            style={{ maxWidth: "20%", flexBasis: "100%" }}
+            sm={6}
+            xs={6}
             key={item.id}
+            className={classes.container}
           >
             <CountUp start={0} end={item.countEvents} delay={0} duration={5.75}>
               {({ countUpRef }) => (
@@ -52,4 +63,3 @@ export default function AcomplishSection({ sector }) {
     </Grid>
   );
 }
-

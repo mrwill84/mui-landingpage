@@ -4,13 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AttachFileIcon from "@material-ui/icons/AttachFile";
 import SearchIcon from "@material-ui/icons/Search";
 
-const useStyles = makeStyles(() => ({
-  imgStyle: {
-    objectFit: "contain",
-    height: "100%",
-    borderRadius: ".5rem",
-    width: "100%",
-  },
+const useStyles = makeStyles((theme) => ({
   workFigure: {
     position: "relative",
     textAlign: "center",
@@ -18,11 +12,19 @@ const useStyles = makeStyles(() => ({
     overflow: "hidden",
     cursor: "pointer",
     margin: "0",
+    width:"100%",
+    height:"290px",
     "&:hover figcaption": {
       transform: "translateY(0%)",
       visibility: "visible",
       opacity: 1,
     },
+  },
+  imgStyle: {
+    objectFit: "cover",
+    height: "290px",
+    width: "100%",
+    borderRadius: ".5rem",
   },
   workCaption: {
     position: "absolute",

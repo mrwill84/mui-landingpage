@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ItemPrice from "./ItemPrice";
 import SectionHeader from "../Common/SectionHeader";
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "420px",
     marginTop: "3rem",
@@ -11,16 +11,16 @@ const useStyles = makeStyles(() => ({
   },
   priceList: {
     display: "flex",
-    // flexWrap:"wrap",
     justifyContent: "center",
   },
   sampleItem: {
     display: "flex",
     margin: "15px",
     borderRadius: ".25rem",
-    // border:"1px solid #dee2e6",
-    // justifyContent:"space-around",
-    // flexDirection:"column",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "none",
+      flexBasis: "auto",
+    },
   },
 }));
 
@@ -34,7 +34,6 @@ function Pricings() {
       className={classes.root}
       id="pricings"
     >
-      
       <Grid item style={{ marginBottom: "3rem" }}>
         <SectionHeader
           isWhite={true}
@@ -44,7 +43,7 @@ function Pricings() {
         />
       </Grid>
       <Grid container className={classes.priceList}>
-        <Grid item md={2} sm={3} xs={6} className={classes.sampleItem}>
+        <Grid item md={2} sm={6} xs={6} className={classes.sampleItem}>
           <ItemPrice
             title="STANDARD PLAN"
             dollar="19"
@@ -53,7 +52,7 @@ function Pricings() {
             BW="10GB"
           />
         </Grid>
-        <Grid item md={2} sm={3} xs={6} className={classes.sampleItem}>
+        <Grid item md={2} sm={6} xs={6} className={classes.sampleItem}>
           <ItemPrice
             title="PREMIUM PLAN"
             dollar="29"

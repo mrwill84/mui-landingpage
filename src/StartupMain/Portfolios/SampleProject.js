@@ -1,10 +1,11 @@
 import React from "react";
-import { Grid, Typography, Button } from "@material-ui/core";
+import { Grid, Typography, Button, Hidden } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import SampleItem from "./SampleItem";
 import SectionHeader from "../Common/SectionHeader";
+import { CarousalItemOnlyMobile } from "../Common/CarousalItem";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "420px",
     marginTop: "3rem",
@@ -23,12 +24,15 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     margin: "5px",
     borderRadius: ".25rem",
-    border: "1px solid #dee2e6",
+    // border: "1px solid #dee2e6",
+    [theme.breakpoints.down("sm")]: {
+      padding: "2rem",
+    },
   },
   btnStyle: {
     // background: "#17a2bb",
     color: "#333",
-    fontWeight:"600",
+    fontWeight: "600",
     width: "40%",
     outline: "none !important",
     marginBottom: "20px",
@@ -37,12 +41,21 @@ const useStyles = makeStyles(() => ({
   purchase: {
     background: "#865543",
     color: "#fff",
-    fontWeight:"600",
+    fontWeight: "600",
     width: "100%",
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
     padding: "15px",
+  },
+  purchaseBtn: {
+    marginRight: "8px",
+    fontSize: "10px",
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "7px",
+      width: "116px",
+      marginRight: "0px",
+    },
   },
 }));
 function SampleProject({ working }) {
@@ -65,24 +78,30 @@ function SampleProject({ working }) {
       </Grid>
 
       <Grid container className={classes.sampleWork}>
-        {working.map((item, ind) => (
-          <Grid
-            item
-            key={ind}
-            md={3}
-            sm={4}
-            xs={6}
-            className={classes.sampleItem}
-          >
-            <SampleItem
-              title={item.title}
-              img={item.img}
-              description={item.description}
-              type={item.type}
-              url={item.url}
-            />
-          </Grid>
-        ))}
+        <CarousalItemOnlyMobile>
+          {working.map((item, ind) => (
+            <Grid
+              item
+              key={ind}
+              md={3}
+              sm={4}
+              // xs={6}
+              className={classes.sampleItem}
+            >
+              <SampleItem
+                title={item.title}
+                img={item.img}
+                description={item.description}
+                type={item.type}
+                url={item.url}
+              />
+            </Grid>
+          ))}
+        </CarousalItemOnlyMobile>
+
+        <Hidden xsDown>
+          <RenderProjects working={working} />
+        </Hidden>
       </Grid>
       <Button
         fullWidth
@@ -101,7 +120,8 @@ function SampleProject({ working }) {
           <Button
             variant="contained"
             size="small"
-            style={{ marginRight: "8px", fontSize: "10px" }}
+            style={{}}
+            className={classes.purchaseBtn}
           >
             PURCHASE NOW
           </Button>
@@ -113,5 +133,27 @@ function SampleProject({ working }) {
     </Grid>
   );
 }
+
+const RenderProjects = ({ working }) => {
+  const classes = useStyles();
+  return working.map((item, ind) => (
+    <Grid
+      item
+      key={ind}
+      md={3}
+      sm={4}
+      // xs={6}
+      className={classes.sampleItem}
+    >
+      <SampleItem
+        title={item.title}
+        img={item.img}
+        description={item.description}
+        type={item.type}
+        url={item.url}
+      />
+    </Grid>
+  ));
+};
 
 export default SampleProject;

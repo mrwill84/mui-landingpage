@@ -1,8 +1,9 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Hidden } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import SectionHeader from "../Common/SectionHeader";
 import Member from "./Member";
+import { CarousalItemOnlyMobile } from "../Common/CarousalItem";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -14,7 +15,8 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
-    margin: "0 30px",
+    // margin: "0 30px",
+    padding:"2rem",
   },
   sampleItem: {
     display: "flex",
@@ -42,25 +44,47 @@ function TeamMembers({ members }) {
           description="We’re some creative people with powerful knowledge & awesome skills behind the scene bringing you the bests"
         />
       </Grid>
-      <Grid className={classes.sampleWork}>
-        {members.map((item, ind) => (
-          <Grid
-            item
-            key={ind}
-            md={2}
-            // sm={4}
-            xs={6}
-            className={classes.sampleItem}
-          >
-            <Member
-              name={item.name}
-              img={item.img}
-              position={item.position}
-              gmail={item.gmail}
-              phone={item.phone}
-            />
-          </Grid>
-        ))}
+      <Grid container className={classes.sampleWork}>
+        <CarousalItemOnlyMobile>
+          {members.map((item, ind) => (
+            <Grid
+              item
+              key={ind}
+              sm={6}
+              md={6}
+              lg={3}
+              className={classes.sampleItem}
+            >
+              <Member
+                name={item.name}
+                img={item.img}
+                position={item.position}
+                gmail={item.gmail}
+                phone={item.phone}
+              />
+            </Grid>
+          ))}
+        </CarousalItemOnlyMobile>
+        <Hidden xsDown>
+          {members.map((item, ind) => (
+            <Grid
+              item
+              key={ind}
+              md={2}
+              // sm={4}
+              // xs={6}
+              className={classes.sampleItem}
+            >
+              <Member
+                name={item.name}
+                img={item.img}
+                position={item.position}
+                gmail={item.gmail}
+                phone={item.phone}
+              />
+            </Grid>
+          ))}
+        </Hidden>
       </Grid>
     </Grid>
   );
