@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    fontFamily: "cursive",
+    fontFamily: "Poppins",
     fontWeight: "900",
     display: "none",
     cursor: "pointer",
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
   inputRoot: {
     color: "inherit",
-    fontFamily: "cursive",
+    fontFamily: "Poppins",
     fontWeight: "500",
   },
   inputInput: {
@@ -97,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navlinks: {
     margin: "0 9px",
-    fontFamily: "cursive",
+    fontFamily: "Poppins",
     fontWeight: "600",
     cursor: "pointer",
 
@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navlinksMbl: {
-    fontFamily: "cursive",
+    fontFamily: "Poppins",
     fontWeight: "600",
     color: "#333",
     "&:hover": {

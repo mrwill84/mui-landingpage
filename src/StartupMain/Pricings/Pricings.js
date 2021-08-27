@@ -10,11 +10,16 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   priceList: {
-    display: "flex",
+    display: "grid",
+    gridTemplateColumns:"repeat(4,250px)",
     justifyContent: "center",
+    [theme.breakpoints.down("xs")]: {
+      gridTemplateColumns:"repeat(2,1fr)",
+    },
   },
   sampleItem: {
     display: "flex",
+    justifyContent:"center",
     margin: "15px",
     borderRadius: ".25rem",
     [theme.breakpoints.down("sm")]: {
@@ -43,7 +48,7 @@ function Pricings() {
         />
       </Grid>
       <Grid container className={classes.priceList}>
-        <Grid item md={2} sm={6} xs={6} className={classes.sampleItem}>
+        <Grid item className={classes.sampleItem}>
           <ItemPrice
             title="STANDARD PLAN"
             dollar="19"
@@ -52,7 +57,7 @@ function Pricings() {
             BW="10GB"
           />
         </Grid>
-        <Grid item md={2} sm={6} xs={6} className={classes.sampleItem}>
+        <Grid item  className={classes.sampleItem}>
           <ItemPrice
             title="PREMIUM PLAN"
             dollar="29"
@@ -61,7 +66,7 @@ function Pricings() {
             BW="20GB"
           />
         </Grid>
-        <Grid item md={2} sm={3} xs={6} className={classes.sampleItem}>
+        <Grid item className={classes.sampleItem}>
           <ItemPrice
             title="ADVANCED PLAN"
             dollar="49"
@@ -70,7 +75,7 @@ function Pricings() {
             BW="50GB"
           />
         </Grid>
-        <Grid item md={2} sm={3} xs={6} className={classes.sampleItem}>
+        <Grid item className={classes.sampleItem}>
           <ItemPrice
             title="ULTIMATE PLAN"
             dollar="99"

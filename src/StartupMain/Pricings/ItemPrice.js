@@ -32,7 +32,6 @@ function ItemPrice({ title, dollar, project, storage, BW }) {
     <Grid className={classes.border}>
       <Button
         variant="contained"
-        // color="secondary"
         className={classes.btnStyle}
       >
         {title}

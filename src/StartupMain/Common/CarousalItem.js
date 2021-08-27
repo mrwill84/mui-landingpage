@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import useCheckMobileScreen from '../../hooks/useChekMobile'
 
 // desktop, tabs, mobile- 3 items, 2 items, 1 items
 // must refactor later
@@ -42,17 +43,20 @@ const responsiveMbl = {
 export const CarousalItem = ({ children }) => {
   // const [dense,setDense] =  useState(false)
   // const responsive = dense ? responsiveDense : responsiveMain
-  // console.log(dense)
+  let deviceType = useCheckMobileScreen()
+  console.log(deviceType)
   return (
     <Carousel
       responsive={responsiveMain}
       containerClass="carousel-container"
       itemClass="carousel-item"
       swipeable={true}
-      infinite={true}
-      autoPlay={true}
-      autoPlaySpeed={1500}
-      transitionDuration={1500}
+      infinite={deviceType ? true : false}
+      autoPlaySpeed={2500}
+      transitionDuration={2500}
+      // deviceType={deviceType}
+      autoPlay={deviceType  ? true : false}
+      ssr={true}
     >
       {children}
     </Carousel>
@@ -65,10 +69,10 @@ export const CarousalItemDense = ({ children }) => {
       containerClass="carousel-container"
       itemClass="carousel-item"
       swipeable={true}
-      infinite={true}
-      autoPlay={true}
-      autoPlaySpeed={1500}
-      transitionDuration={1500}
+      // infinite={true}
+      // autoPlay={true}
+      // autoPlaySpeed={2500}
+      transitionDuration={2500}
     >
       {children}
     </Carousel>
