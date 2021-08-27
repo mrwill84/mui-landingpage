@@ -68,7 +68,15 @@ const useStyles = makeStyles((theme) => ({
     transform: "translateY(-50%)",
     zIndex: "100",
     fontSize: "15px",
-    fontFamily: "cursive",
+    fontFamily: "Poppins",
+  },
+  designation:{
+    fontSize: "14px",
+    marginBottom: "12px",
+    fontFamily: "Poppins",
+    [theme.breakpoints.down("xs")]: {
+     fontWeight:"600",
+    },
   },
   contact: {
     display: "flex",
@@ -103,10 +111,9 @@ function Member({ name, img, position, gmail, phone }) {
       </Typography>
       <Typography
         variant="body1"
+        className={classes.designation}
         style={{
-          fontSize: "14px",
-          marginBottom: "12px",
-          fontFamily: "cursive",
+         
         }}
       >
         {position}

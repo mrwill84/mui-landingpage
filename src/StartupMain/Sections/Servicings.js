@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   featureItem: {
     padding: "1rem 2.3rem",
     gap: "2.5rem",
-    marginLeft:"3rem",
+    // marginLeft:"3rem",
     // paddingLeft: "8rem",
     [theme.breakpoints.between('sm', 'md')]: {
       marginTop: "2rem",

@@ -2,9 +2,14 @@ import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   textFont: {
     fontFamily: "Poppins",
+  },
+  textSize:{
+    [theme.breakpoints.down("xs")]: {
+      fontSize:"24px",
+     },
   },
   textCenter: {
     display: "flex",
@@ -17,6 +22,12 @@ const useStyles = makeStyles(() => ({
     color: (props) => (props.isWhite ? "rgb(68, 190, 199)" : "#158e2a"),
     marginLeft: "8px",
   },
+  description:{
+    color:"#838e7a",
+    [theme.breakpoints.down("xs")]: {
+      fontSize:"13px",
+     },
+  }
 }));
 export default function SectionHeader({
   text,
@@ -29,14 +40,14 @@ export default function SectionHeader({
     <Grid item xs={12}>
       <Typography
         variant="h4"
-        className={`${classes.textFont} ${classes.textCenter}`}
+        className={`${classes.textFont} ${classes.textSize} ${classes.textCenter}`}
       >
         {text}
         <span className={classes.colorText}>{colorText}</span>
       </Typography>
       <Typography
         variant="body1"
-        className={`${classes.textFont} ${classes.textCenter}`}
+        className={`${classes.textFont} ${classes.description} ${classes.textCenter}`}
       >
         {description}
       </Typography>
