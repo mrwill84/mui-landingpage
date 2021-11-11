@@ -6,7 +6,8 @@ import FeatureItem from "./FeatureItem";
 import CountUp from "react-countup";
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#b6f67c8c",
+    background: "rgb(255, 255, 255)",
+    color: "#333",
     padding: "20px",
     marginTop: "28px",
     // backgroundColor: (props) => props.backgroundColor,
@@ -15,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
   featureItem: {
     gap: "2rem",
     justifyContent: "center",
-    // paddingLeft: "7rem",
+    marginLeft: "16px",
+    //paddingLeft: "-7rem",
     marginTop: "16px",
     marginBottom: "13px",
     //
@@ -38,7 +40,7 @@ export default function AcomplishSection({ sector }) {
   return (
     <Grid container className={classes.root}>
       <SectionHeader text="Our " colorText="Accomplishments" />
-      <Grid container className={classes.featureItem}>
+      <Grid container space={1} className={classes.featureItem}>
         {sector.map((item) => (
           <Grid
             item

@@ -1,7 +1,8 @@
 import React from "react";
-import { Grid, Hidden, Typography, Button } from "@material-ui/core";
+import { Grid, Hidden, Typography, ButtonTypeMap, Card, Button, CardMedia, CardActions, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { headerDescript as header } from "../../data";
+import InfoIcon from "@material-ui/icons/Info";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,22 +13,25 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   image: {
-    backgroundImage: `linear-gradient(rgba(138,138,138,.6),rgba(138,138,138,.9)),url("./img/header-bg.jpg")`,
+    backgroundImage: `linear-gradient(rgb(255, 255, 255), transparent),url("./img/header-bg.jpg")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    opacity: 0.3,
     width: "100%",
     height: "450px",
+
     position: "absolute",
     [theme.breakpoints.down('sm')]: {
       height: "300px",
     },
   },
   headerTitle: {
+    color: "#000",
+    fontWeight: "500",
     position: "relative",
-    top: "110px",
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "left",
+    alignItems: "left",
     flexDirection: "column",
     color: "#efefef",
     gap: "10px",
@@ -38,21 +42,22 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "13px",
   },
 
+  rootCard: {
+    zIndex: 60,
+    top: '10px',
+    position: "relative",
+  },
+  media: {
+    width: '100%',
+    height: 360,
+    zIndex: 60,
+  },
   headerTitle3: {
-    padding: "1.8rem",
-    background: "#505557",
-    color: "#f8f9fa",
     borderRadius: "5px",
-    width: "45%",
-    textAlign: "center",
-    margin: "1rem 0",
+    width: "80%",
+    textAlign: "left",
     textTransform: "capitalize",
-    fontFamily: "Raleway",
     fontWeight: "500",
-    "&:hover": {
-      borderRadius: "25px",
-      transition: "1s ease-in-out",
-    },
   },
   headerTitleImg: {
     display: "flex",
@@ -77,56 +82,52 @@ const useStyles = makeStyles((theme) => ({
       transition: "1ms ease-in-out",
     },
   },
-  mblBtn:{
-    marginTop:"3rem",
-    fontWeight:"600",
+  mblBtn: {
+    marginTop: "2rem",
+    width: 160,
+    fontWeight: "600",
   }
 }));
 function Header() {
   const classes = useStyles();
   return (
     <div className={classes.root} id="/">
-      <span className={classes.image} />
-      <Grid container className={classes.headerTitle}>
-        <Typography variant="subtitle1" className={classes.headerTitle1}>
-          {header.subtitle}
-        </Typography>
-
-        <Typography variant="h4" style={{ fontWeight: "700" }}>
-          {header.title}
-        </Typography>
-        <Hidden smDown>
-          <Typography
-            component="div"
-            variant="subtitle1"
-            className={classes.headerTitle3}
-          >
-            {header.shortNote}
+      <div className={classes.image}></div>
+      <Grid position={'relative'} container justifyContent="space-around" direction="row" space={1} alignItems="center" >
+        <Grid xs={5} item className={classes.headerTitle}  >
+          <Typography variant="h1"  >
+            {header.title}
           </Typography>
-        </Hidden>
-        
-        <Hidden smDown>
-          <Grid item className={classes.headerTitleImg}>
+          <Hidden smDown>
             <Typography
-              component="div"
-              variant="h6"
-              className={classes.headerTitle4}
-              color="primary"
+              variant="subtitle1"
+              className={classes.headerTitle3}
             >
-              {header.caption}
+              {header.shortNote}
             </Typography>
-            <img
-              src="./img/get-started.png"
-              alt="get started"
-              className={classes.downIcon}
-            />
+          </Hidden>
+          <Button variant="contained"
+            color="primary" className={classes.mblBtn}>Get Started</Button>
+
+        </Grid>
+        <Hidden smDown>
+          <Grid item xs={5} >
+            <Card elevation={3} className={classes.rootCard}>
+              <CardMedia component="img"
+                className={classes.media}
+                image="https://source.unsplash.com/collection/190727/1600x900"
+                title="Paella dish"
+              />
+              <CardActions disableSpacing>
+                <IconButton aria-label="add to favorites">
+                  <InfoIcon />
+                </IconButton>
+              </CardActions>
+            </Card>
           </Grid>
         </Hidden>
-      <Hidden mdUp>
-      <Button variant="outlined" color="primary" className={classes.mblBtn}>Get Started</Button>
-      </Hidden>
       </Grid>
-    </div>
+    </div >
   );
 }
 

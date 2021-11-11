@@ -38,18 +38,18 @@ function Main() {
 
   return (
     <Grid>
-      <Header />
       <Navbar />
+      <Header />
       <Offer feature={offer} />
       {/* <Test /> */}
       <HeroSection acquantace={acquantace} />
-      <Servicings servicings={service} />
-      <AcomplishSection sector={acomplishSection} />
+      {/*<Servicings servicings={service} />*/}
+      {/*<AcomplishSection sector={acomplishSection} />*/}
       {/* <Dummy /> */}
       {/* <SkillsPage /> */}
-      <SampleProject working={sample} />
-      <TeamMembers members={members} />
-      <Pricings />
+      {/*<}SampleProject working={sample} />
+      <TeamMembers members={members} />*/}
+      {/*<Pricings />*/}
       <Contacts />
     </Grid>
   );

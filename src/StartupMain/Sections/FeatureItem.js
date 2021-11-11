@@ -8,14 +8,14 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: "25px",
     paddingRight: "12px",
-    minHeight:"5rem",
-    minWidth:"15rem",
+    minHeight: "5rem",
+
     // marginLeft: "2rem",
     [theme.breakpoints.down("sm")]: {
       marginRight: "1rem",
-      minWidth:"8rem",
-      marginTop:"1rem",
-      padding:"10px",
+      minWidth: "8rem",
+      marginTop: "1rem",
+      padding: "10px",
     },
   },
   image: {

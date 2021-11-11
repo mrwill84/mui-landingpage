@@ -8,6 +8,7 @@ import {
   MenuItem,
   Menu,
   IconButton,
+  Button
   // Link,
 } from "@material-ui/core";
 import { Link } from "react-scroll";
@@ -16,14 +17,23 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import { brandName, navlinks } from "../../data";
 
 const useStyles = makeStyles((theme) => ({
-  appBar:{
-    background: "#b6f67c",
+  appBar: {
+    background: "rgb(255, 255, 255)",
     color: "#333",
-    transition:"ease 1s",
-    position: (scrollPosition) =>(scrollPosition > 450 ? "fixed" : "sticky"),
+    transition: "ease 1s",
+    position: (scrollPosition) => (scrollPosition > 450 ? "fixed" : "sticky"),
     [theme.breakpoints.down('sm')]: {
-      position: (scrollPosition) =>(scrollPosition > 295 ? "fixed" : "sticky"),
+      position: (scrollPosition) => (scrollPosition > 295 ? "fixed" : "sticky"),
     },
+    height: '72px',
+
+  },
+  login: {
+    color: "#333",
+  },
+  toolbar: {
+    flex: 1,
+    width: "100%"
   },
   grow: {
     flexGrow: 1,
@@ -35,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(8),
     cursor: "pointer",
     [theme.breakpoints.down("xs")]: {
-      marginLeft:"30px",
+      marginLeft: "30px",
     },
   },
   title: {
@@ -107,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "#333",
       // textDecoration:"underline",
-      borderBottom:"2px solid #333",
+      borderBottom: "2px solid #333",
       // transition:"ease 1s",
     },
   },
@@ -137,6 +147,7 @@ const useStyles = makeStyles((theme) => ({
     color: "rgba(0,0,0,.8)",
     marginRight: "45px",
     display: "none",
+    flexGrow: 1,
     [theme.breakpoints.up("md")]: {
       display: "flex",
     },
@@ -151,7 +162,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Navbar() {
- 
+
   const [scrollPosition, setScrollPosition] = useState(0);
   const classes = useStyles(scrollPosition);
 
@@ -183,6 +194,8 @@ export default function Navbar() {
   }, []);
 
   const mobileMenuId = "primary-search-account-menu-mobile";
+  const LoginButton = { label: "Login", path: "https://admin.copyright.land" }
+
   const renderMobileMenu = (
     <Menu
       anchorOrigin={{ horizontal: "right", vertical: "top" }}
@@ -199,6 +212,9 @@ export default function Navbar() {
           <RenderNavLinks label={linkName.label} scrollTo={linkName.path} />
         </MenuItem>
       ))}
+      <MenuItem key={LoginButton.label} className={classes.navlinksMbl}>
+        <RenderNavLinks label={LoginButton.label} scrollTo={LoginButton.path} />
+      </MenuItem>
     </Menu>
   );
 
@@ -208,16 +224,11 @@ export default function Navbar() {
         // position={scrollPosition > 440 ? "fixed" : "sticky"}
         className={classes.appBar}
       >
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <img className={classes.logo} src="./img/icon.png" alt="text" />
           <Typography className={classes.title} variant="h6" noWrap>
             {brandName}
           </Typography>
-
-          <RenderSearch />
-
-          <div className={classes.grow} />
-
           <div className={classes.sectionDesktop}>
             {navlinks.map((linkName) => (
               <RenderNavLinks
@@ -226,6 +237,9 @@ export default function Navbar() {
                 key={linkName.label}
               />
             ))}
+            <div className={classes.grow} />
+            <RenderNavLinks className={classes.login} label={"Login"} key={LoginButton.label} href={LoginButton.path} />
+
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
@@ -240,6 +254,7 @@ export default function Navbar() {
             </IconButton>
           </div>
         </Toolbar>
+
       </AppBar>
       {renderMobileMenu}
     </div>

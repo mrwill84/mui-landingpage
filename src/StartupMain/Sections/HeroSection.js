@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: "3rem 2.3rem",
     [theme.breakpoints.down('sm')]: {
-      padding:"0",
+      padding: "0",
     },
   },
   featureImage: {
@@ -16,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
   },
   acquantace: {
-    background: "#b6f67c8c",
+    background: "rgb(255, 255, 255)",
+    color: "#333",
+    //background: "#b6f67c8c",
     padding: "4rem",
   },
   slogan: {

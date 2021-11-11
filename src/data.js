@@ -1,4 +1,4 @@
-export const brandName = "Start Up";
+export const brandName = "Meta Sea";
 export const heroImage = "./img/devices.png";
 
 export const headerDescript = {
@@ -10,11 +10,7 @@ export const headerDescript = {
 };
 export const navlinks = [
   { label: "Home", path: "/" },
-  { label: "Services", path: "services" },
   { label: "Feature", path: "features" },
-  { label: "Portfolio", path: "portfolios" },
-  {label:"Team", path:"teams"},
-  { label: "Pricings", path: "pricings" },
   { label: "Contacts", path: "contacts" },
 ];
 
@@ -71,6 +67,8 @@ export const offering = [
     caption: "WooCommerce Fully Integration",
   },
 ];
+
+
 
 export const offerings = [
   {

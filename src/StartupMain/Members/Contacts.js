@@ -71,15 +71,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
+//<FeedbackForm />
 function Contacts() {
   return (
     <Grid container>
       {/* uniq + purchase */}
-      <Hidden xsDown>
-        <PurchaseBtn />
-      </Hidden>
+
       <SocialAddressSection />
-      <FeedbackForm />
+
       <Footer />
     </Grid>
   );

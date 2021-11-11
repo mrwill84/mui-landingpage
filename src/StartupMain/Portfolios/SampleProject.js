@@ -112,7 +112,13 @@ function SampleProject({ working }) {
         View All Works
       </Button>
 
-      <Grid className={classes.purchase}>
+
+    </Grid>
+  );
+}
+
+/*
+ <Grid className={classes.purchase}>
         <Typography variant="caption">
           ARE YOU SATISFIED WITH UNLIMITED FEATURES THAT WE OFFER?
         </Typography>
@@ -130,9 +136,7 @@ function SampleProject({ working }) {
           </Button>
         </Grid>
       </Grid>
-    </Grid>
-  );
-}
+*/
 
 const RenderProjects = ({ working }) => {
   const classes = useStyles();
